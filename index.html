@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="AI 액션 배우 미르(@mir_actionai) 실링팬 OOTD 릴스를 힉스필드로 만드는 단계별 프롬프트">
-<meta property="og:title" content="미르 실링팬 OOTD 프롬프트">
-<meta property="og:description" content="천장 선풍기 날개가 지날 때마다 옷이 바뀌는 15초 OOTD, 만드는 법 그대로">
+<meta name="description" content="Step-by-step Higgsfield prompts behind the ceiling-fan OOTD reel by AI Mir (@mir_actionai)">
+<meta property="og:title" content="Mir Ceiling-Fan OOTD Prompts">
+<meta property="og:description" content="A 15-second OOTD where the outfit changes every time a fan blade passes — exactly how it was made">
 <style>*,*::before,*::after{box-sizing:border-box}html{color-scheme:light}body{margin:0}img{max-width:100%}</style>
-<title>미르 실링팬 OOTD 프롬프트</title>
+<title>Mir Ceiling-Fan OOTD Prompts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: 한 줄 세로 흐름. 위에서 내려다본 카펫(더스티 블루) 위에 단계 카드가 쌓이고, 프롬프트는 복사 가능한 상자 */
+/* Layout: single column; step cards on a dusty-blue "carpet", prompts in copyable boxes */
 :root{
   --bg:#eef2f6; --paper:#ffffff; --ink:#1f2733; --muted:#5d6878; --line:#d5dde7;
   --carpet:#8fa6bf; --blush:#e8aeb7; --blush-ink:#9b4656; --code:#f5f7fa;
@@ -60,40 +60,40 @@ footer b{color:var(--blush-ink)}
 <body>
 <div class="wrap">
   <header>
-    <span class="eyebrow">AI actress Mir · prompt pack</span>
-    <h1>천장 선풍기 날개가 지날 때마다 옷이 바뀌는 15초 OOTD</h1>
-    <p class="lead">@mir_actionai 릴스를 실제로 만든 과정 그대로예요. 힉스필드(Higgsfield)에서 이미지 5장을 만들고, Seedance 2.5로 한 번에 영상을 뽑아요. [ ] 안만 내 것으로 바꿔서 쓰세요.</p>
-    <div class="fan"><span class="chip">이미지: Nano Banana Pro</span><span class="chip">영상: Seedance 2.5</span><span class="chip">9:16 · 15초</span></div>
+    <span class="eyebrow">AI Mir · prompt pack</span>
+    <h1>A 15-second OOTD that changes outfits with every fan blade</h1>
+    <p class="lead">This is the exact workflow behind the @mir_actionai reel. Make 5 images on Higgsfield, then generate the video in one go with Seedance 2.5. Just swap whatever is inside [ ] with your own.</p>
+    <div class="fan"><span class="chip">Image: Nano Banana Pro</span><span class="chip">Video: Seedance 2.5</span><span class="chip">9:16 · 15s</span></div>
   </header>
 
   <section>
-    <h2><span class="n">1</span>기준 컷 한 장 만들기</h2>
-    <p>구도가 전부예요. 선풍기, 카펫, 쿠션, 몸 위치가 이 한 장에서 정해지고 나머지 4장은 이걸 그대로 복사해요. 내 얼굴 사진 1~2장을 참조로 넣으세요.</p>
-    <div class="meta"><span>모델 <b>Nano Banana Pro</b></span><span>비율 <b>9:16</b></span><span>참조 <b>얼굴 사진</b></span></div>
-    <div class="prompt"><div class="bar"><span>기준 컷 프롬프트</span><button class="copy" type="button" id="c1">복사</button></div><pre id="p1">Real photograph, top-down view straight from the ceiling: the brushed-steel motor housing of a ceiling fan with two wooden blades at the top of the frame; below, ONE real 20-year-old woman lies on her back on a soft dusty-blue carpet, her head on a blush-pink round cushion, full body visible head to toe, hands near her face, sweet smile looking up toward the fan. Face from the reference image. OUTFIT: [fitted pastel-pink cropped cardigan, white pleated mini skirt, white knee-high socks, black Mary Jane shoes], a small [pink shoulder bag] beside her on the carpet. Soft daylight, real fabric texture, real skin, fashion lookbook feel. No text.</pre></div>
+    <h2><span class="n">1</span>Make one base shot</h2>
+    <p>Composition is everything. The fan, carpet, cushion and body position are locked in this one image, and the other 4 copy it exactly. Add 1–2 photos of your face as references.</p>
+    <div class="meta"><span>Model <b>Nano Banana Pro</b></span><span>Ratio <b>9:16</b></span><span>Reference <b>face photo</b></span></div>
+    <div class="prompt"><div class="bar"><span>Base shot prompt</span><button class="copy" type="button" id="c1">Copy</button></div><pre id="p1">Real photograph, top-down view straight from the ceiling: the brushed-steel motor housing of a ceiling fan with two wooden blades at the top of the frame; below, ONE real 20-year-old woman lies on her back on a soft dusty-blue carpet, her head on a blush-pink round cushion, full body visible head to toe, hands near her face, sweet smile looking up toward the fan. Face from the reference image. OUTFIT: [fitted pastel-pink cropped cardigan, white pleated mini skirt, white knee-high socks, black Mary Jane shoes], a small [pink shoulder bag] beside her on the carpet. Soft daylight, real fabric texture, real skin, fashion lookbook feel. No text.</pre></div>
   </section>
 
   <section>
-    <h2><span class="n">2</span>옷만 바꾼 4장 만들기</h2>
-    <p>1번 이미지를 첫 번째 참조로 넣고 아래 문장을 쓰면 구도는 그대로, 옷과 손 위치만 바뀌어요. 포즈를 크게 바꾸지 않는 게 핵심이에요. 영상에서 날개가 지날 때 "옷만 휙" 바뀐 느낌이 나요.</p>
-    <div class="prompt"><div class="bar"><span>의상 교체 프롬프트</span><button class="copy" type="button" id="c2">복사</button></div><pre id="p2">Edit image 1. Keep EXACTLY the same photo: identical top-down camera, framing and scale, the same ceiling fan with the same wooden blades in the same position, the same dusty-blue carpet, the same pink cushion under her head, her body lying in the same place and direction, hair fanned out the same way. Same face as the reference. Change ONLY her outfit and a small pose change: OUTFIT = [black cropped leather biker jacket, black leather mini skirt, sheer black tights, knee-high boots]; a [small black bag] where the pink bag was. POSE = [hand resting by her cheek], bright lovely smile with soft smiling eyes looking up at the fan. Real photo, no text.</pre></div>
+    <h2><span class="n">2</span>Make 4 outfit swaps</h2>
+    <p>Put image 1 as the first reference and use the prompt below: the composition stays, only the outfit and hands change. Keep pose changes tiny — that is what makes the video feel like only the clothes flip when the blade passes.</p>
+    <div class="prompt"><div class="bar"><span>Outfit swap prompt</span><button class="copy" type="button" id="c2">Copy</button></div><pre id="p2">Edit image 1. Keep EXACTLY the same photo: identical top-down camera, framing and scale, the same ceiling fan with the same wooden blades in the same position, the same dusty-blue carpet, the same pink cushion under her head, her body lying in the same place and direction, hair fanned out the same way. Same face as the reference. Change ONLY her outfit and a small pose change: OUTFIT = [black cropped leather biker jacket, black leather mini skirt, sheer black tights, knee-high boots]; a [small black bag] where the pink bag was. POSE = [hand resting by her cheek], bright lovely smile with soft smiling eyes looking up at the fan. Real photo, no text.</pre></div>
     <div class="tbl"><table>
-      <thead><tr><th>순서</th><th>미르가 입은 옷</th><th>손 포즈</th></tr></thead>
+      <thead><tr><th>#</th><th>Mir’s outfit</th><th>Hands</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td>크림 새틴 셔츠 + 검정 미니 + 스타킹</td><td>한 손 쇄골</td></tr>
-        <tr><td class="num">2</td><td>가죽 라이더 재킷 + 가죽 미니 + 롱부츠</td><td>손을 볼 옆</td></tr>
-        <tr><td class="num">3</td><td>핑크 가디건 + 흰 플리츠 + 니삭스 (기준 컷)</td><td>양손 볼</td></tr>
-        <tr><td class="num">4</td><td>흰 트랙 재킷 + 테니스 스커트 + 검은 띠</td><td>브이</td></tr>
-        <tr><td class="num">5</td><td>하늘색 깅엄 원피스 + 리본 + 프릴 양말</td><td>손하트</td></tr>
+        <tr><td class="num">1</td><td>Cream satin shirt + black mini + sheer tights</td><td>One hand on collarbone</td></tr>
+        <tr><td class="num">2</td><td>Leather biker jacket + leather mini + knee boots</td><td>Hand by cheek</td></tr>
+        <tr><td class="num">3</td><td>Pink cardigan + white pleats + knee socks (base shot)</td><td>Both hands on cheeks</td></tr>
+        <tr><td class="num">4</td><td>White track jacket + tennis skirt + black belt</td><td>Peace sign</td></tr>
+        <tr><td class="num">5</td><td>Sky-blue gingham dress + bow + frilly socks</td><td>Finger heart</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section>
-    <h2><span class="n">3</span>Seedance 2.5로 15초 영상</h2>
-    <p>Seedance 2.5에서 참조 모드(omni reference)를 고르고 5장을 순서대로 넣어요. 날개가 3초마다 한 번 지나가고, 지날 때마다 옷이 한 번 바뀌게 시간을 적어주는 게 포인트예요.</p>
-    <div class="meta"><span>모드 <b>omni reference</b></span><span>길이 <b>15초</b></span><span>소리 <b>끄기 (음악은 따로)</b></span></div>
-    <div class="prompt"><div class="bar"><span>영상 프롬프트</span><button class="copy" type="button" id="c3">복사</button></div><pre id="p3">Photorealistic 15-second vertical 9:16 fashion lookbook video, ceiling-fan POV, locked top-down camera that never moves. Same composition as all five reference images: steel ceiling fan at the top, dusty-blue carpet, pink round cushion under her head, the same young woman lying in the same place. Keep her face, hair and body identical.
+    <h2><span class="n">3</span>15-second video with Seedance 2.5</h2>
+    <p>In Seedance 2.5 choose omni reference and add the 5 images in order. The trick is writing exact timings: one blade pass every 3 seconds, one outfit change per pass.</p>
+    <div class="meta"><span>Mode <b>omni reference</b></span><span>Length <b>15s</b></span><span>Audio <b>off (add music later)</b></span></div>
+    <div class="prompt"><div class="bar"><span>Video prompt</span><button class="copy" type="button" id="c3">Copy</button></div><pre id="p3">Photorealistic 15-second vertical 9:16 fashion lookbook video, ceiling-fan POV, locked top-down camera that never moves. Same composition as all five reference images: steel ceiling fan at the top, dusty-blue carpet, pink round cushion under her head, the same young woman lying in the same place. Keep her face, hair and body identical.
 FAN: the camera is mounted just under the fan, so the wooden blades are very close to the lens and look huge. The blades rotate slowly and continuously at one constant speed the whole time, never stopping. Exactly one blade sweeps across her every 3 seconds (at 3s, 6s, 9s, 12s) and briefly covers her body.
 OUTFIT CHANGES: exactly one change per blade pass, only at the moment the blade covers her; when it moves on she is revealed in the next outfit.
 0-3s: image 1. 3s -> image 2. 6s -> image 3. 9s -> image 4. 12s -> image 5 to the end.
@@ -101,19 +101,19 @@ Her eyes are always warm and smiling, looking up. Only tiny natural movements be
   </section>
 
   <section>
-    <h2><span class="n">4</span>실패를 줄이는 요령</h2>
+    <h2><span class="n">4</span>Tips to avoid failed generations</h2>
     <ul class="tips">
-      <li><b>구도는 한 장에서만 정하세요.</b> 2~5번은 꼭 1번 이미지를 첫 참조로 넣고 "Keep EXACTLY the same photo"로 시작해요.</li>
-      <li><b>날개가 멈췄다 도는 문제:</b> "constant speed, never stopping"을 꼭 넣으세요. 빼면 옷 바뀔 때만 날개가 휙 돌아요.</li>
-      <li><b>옷이 날개 없이 바뀌는 문제:</b> "3초마다 한 번"처럼 시간을 숫자로 적어요. 의상 5벌이면 15초가 딱 맞아요.</li>
-      <li><b>표정:</b> 눈이 어색하면 그 의상 사진만 "soft smiling eyes"로 다시 만들어요. 영상은 사진 표정을 그대로 따라가요.</li>
-      <li><b>시안 먼저:</b> 480p 시안으로 흐름을 확인하고 마음에 들 때만 1080p로 올리면 크레딧을 아껴요.</li>
+      <li><b>Lock the composition in one image.</b> For images 2–5, always use image 1 as the first reference and start with "Keep EXACTLY the same photo".</li>
+      <li><b>Blades stop and start?</b> Always include "constant speed, never stopping". Without it the blades only whip around at each outfit change.</li>
+      <li><b>Outfit changes without a blade?</b> Write the timing in numbers, like "every 3 seconds". 5 outfits fit 15 seconds perfectly.</li>
+      <li><b>Expression:</b> if the eyes look off, remake just that outfit image with "soft smiling eyes". The video copies the photo’s expression.</li>
+      <li><b>Draft first:</b> check the flow at 480p and only go 1080p when you love it — it saves credits.</li>
     </ul>
   </section>
 
   <footer>
-    <span>만든 사람 <b>@mir_actionai</b> · AI 액션 배우 미르</span>
-    <span>새 프롬프트는 릴스 댓글에 <b>mir</b> 남기면 DM으로 보내드려요</span>
+    <span>Made by <b>@mir_actionai</b> · AI Mir</span>
+    <span>Comment <b>mir</b> on any reel and new prompts land in your DMs</span>
   </footer>
 </div>
 
@@ -122,8 +122,8 @@ Her eyes are always warm and smiling, looking up. Only tiny natural movements be
   const btn=document.getElementById(b), pre=document.getElementById(p);
   btn.addEventListener("click",()=>{
     const txt=pre.innerText;
-    const ok=()=>{btn.textContent="복사됨";btn.classList.add("done");setTimeout(()=>{btn.textContent="복사";btn.classList.remove("done")},1600)};
-    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="선택됨 · 길게 눌러 복사"};
+    const ok=()=>{btn.textContent="Copied";btn.classList.add("done");setTimeout(()=>{btn.textContent="Copy";btn.classList.remove("done")},1600)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="Selected · long-press to copy"};
     try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(e){fallback()}
   });
 });
