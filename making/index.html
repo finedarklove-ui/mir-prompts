@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How AI actress Mir (@mir_actionai) is built and kept consistent in Higgsfield, shown with real failures and fixes">
+<meta name="robots" content="noindex">
+<title>Making Mir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--bg:#eef2f6;--paper:#fff;--ink:#1f2733;--muted:#5d6878;--line:#d5dde7;--accent:#9b4656;
+  --display:"Gowun Batang",serif;--body:"IBM Plex Sans KR","Malgun Gothic",sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161b22;--paper:#1f2630;--ink:#e7ecf2;--muted:#a3adbb;--line:#323c49;--accent:#f0b5bf}}
+:root[data-theme="dark"]{--bg:#161b22;--paper:#1f2630;--ink:#e7ecf2;--muted:#a3adbb;--line:#323c49;--accent:#f0b5bf}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+main{max-width:760px;margin:0 auto;padding:40px 16px 64px}
+h1{font:700 2.2rem/1.2 var(--display);margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 32px}
+.ep{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 24px;display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
+.ep video{width:100%;aspect-ratio:9/16;border-radius:10px;background:#000;display:block}
+.ep h2{font-size:1.15rem;margin:0 0 8px}
+.ep .n{color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.ep ul{margin:8px 0 0;padding-left:18px}
+.stack{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+.stack h2{font-size:1.15rem;margin:0 0 8px}
+a{color:var(--accent)}
+footer{color:var(--muted);font-size:.9rem;margin-top:32px}
+@media (max-width:600px){.ep{grid-template-columns:1fr}.ep video{max-width:300px;margin:0 auto}}
+</style>
+</head>
+<body>
+<main>
+<h1>Making Mir</h1>
+<p class="lead">Mir is a Korean AI actress built entirely in Higgsfield. Her series runs on Instagram <a href="https://www.instagram.com/mir_actionai/">@mir_actionai</a>. This page shows the work behind it, including the failures.</p>
+
+<section class="ep">
+  <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_3H8IMbMkTvF1WlrnzFmpIyI4ykK/64f301b6-8978-4724-ada1-cdcbc231c2fd.mp4" controls playsinline preload="metadata"></video>
+  <div>
+    <div class="n">Part 1 · 26s</div>
+    <h2>I rebuilt her face 5 times</h2>
+    <ul>
+      <li>V1: photo references only. She aged in new scenes.</li>
+      <li>V2: full character sheet. Still looked "AI".</li>
+      <li>V3: Soul ID on 5 face photos. Face locked, body off.</li>
+      <li>V4: added 6 full-body photos. Body fixed.</li>
+      <li>V5: added the expressions she plays (resolve, shout, pain).</li>
+      <li>The lock: 1 face Element plus 1 Element per outfit.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="ep">
+  <video src="https://d2ol7oe51mr4n9.cloudfront.net/user_3H8IMbMkTvF1WlrnzFmpIyI4ykK/82ad32f2-a4c8-4ed4-bec0-7edd2ad06f90.mp4" controls playsinline preload="metadata"></video>
+  <div>
+    <div class="n">Part 2 · 22s</div>
+    <h2>3 rules that stop face drift</h2>
+    <ul>
+      <li>Photo refs only. One drawing in the refs drags her into anime.</li>
+      <li>Real person first, doll second. Too much "doll-like" gives a different girl.</li>
+      <li>Every outfit is its own Element. Spell the detail: torn at the knees, down to the toes.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>Pipeline</h2>
+  <p>Soul 2.0 (5 retrains) → face and outfit Elements → Nano Banana Pro keyframes → Seedance 2.5 / Kling shots → edit, music and subtitles. Action blocking is pre-visualised in Blender before any generation.</p>
+  <p>Episode 1: <a href="https://www.instagram.com/reel/DeURcbRjdFS/">Part 1</a> · <a href="https://www.instagram.com/reel/DeVbaZ7iSlW/">Part 2</a></p>
+</section>
+
+<footer>Made with Higgsfield · <a href="https://www.instagram.com/mir_actionai/">@mir_actionai</a></footer>
+</main>
+</body>
+</html>
