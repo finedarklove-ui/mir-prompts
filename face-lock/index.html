@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How AI actress Mir's face was locked on Higgsfield: Soul ID training set, Elements, image and video prompt templates">
+<meta property="og:title" content="Lock Your AI Character's Face">
+<meta property="og:description" content="5 rebuilds, the training photos and the exact prompts behind @mir_actionai">
+<style>*,*::before,*::after{box-sizing:border-box}html{color-scheme:light}body{margin:0}img{max-width:100%}</style>
+<title>Lock Your AI Character's Face</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column; step cards on a dusty-blue "carpet", prompts in copyable boxes */
+:root{
+  --bg:#eef2f6; --paper:#ffffff; --ink:#1f2733; --muted:#5d6878; --line:#d5dde7;
+  --carpet:#8fa6bf; --blush:#e8aeb7; --blush-ink:#9b4656; --code:#f5f7fa;
+  --display:"Gowun Batang", "Noto Serif KR", serif;
+  --body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161b22; --paper:#1f2630; --ink:#e7ecf2; --muted:#a3adbb; --line:#323c49;
+  --carpet:#6d86a3; --blush:#d9919d; --blush-ink:#f0b5bf; --code:#18202a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161b22; --paper:#1f2630; --ink:#e7ecf2; --muted:#a3adbb; --line:#323c49;
+  --carpet:#6d86a3; --blush:#d9919d; --blush-ink:#f0b5bf; --code:#18202a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding-inline:18px;padding-block:28px 64px;display:grid;gap:22px}
+header{display:grid;gap:10px;padding-block:8px 6px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blush-ink);font-weight:600}
+h1{font-family:var(--display);font-size:clamp(28px,7vw,40px);line-height:1.25;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:60ch}
+.fan{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;padding:4px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 18px;display:grid;gap:12px;min-width:0}
+h2{font-family:var(--display);font-size:22px;margin:0;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{font-family:var(--mono);font-size:13px;color:var(--blush-ink);border:1px solid var(--blush);border-radius:6px;padding:1px 7px}
+p{margin:0;max-width:65ch}
+.meta{font-size:13px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.meta b{color:var(--ink);font-weight:600}
+.prompt{position:relative;background:var(--code);border:1px solid var(--line);border-radius:10px;min-width:0}
+.prompt pre{margin:0;padding:14px 14px 14px;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:13px;line-height:1.6;max-height:340px;overflow:auto}
+.prompt .bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 0 14px;font-size:12px;color:var(--muted)}
+button.copy{font:600 12px var(--body);border:1px solid var(--carpet);background:transparent;color:var(--ink);border-radius:8px;padding:5px 11px;cursor:pointer}
+button.copy:focus-visible{outline:2px solid var(--blush-ink);outline-offset:2px}
+button.copy.done{background:var(--carpet);color:#fff}
+ul.tips{margin:0;padding-left:18px;display:grid;gap:6px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.04em}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+footer{text-align:center;color:var(--muted);font-size:13px;display:grid;gap:4px;padding-top:6px}
+footer b{color:var(--blush-ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.ko{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0}
+header .ko{margin-top:-6px}
+ul.tips .ko{display:inline-block;margin-top:2px}
+a.cta{display:inline-block;font-weight:600;text-decoration:none;color:#fff;background:var(--blush-ink);border-radius:10px;padding:10px 16px}
+a.cta:focus-visible{outline:2px solid var(--carpet);outline-offset:2px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">AI Mir · prompt pack #2</span>
+    <h1>How I locked my AI actress's face after 5 rebuilds</h1>
+    <p class="ko">AI 배우 얼굴, 5번 갈아엎고 고정한 방법</p>
+    <p class="lead">This is exactly what I use on Higgsfield for @mir_actionai. Swap whatever is inside [ ] with your own character.</p>
+    <p class="ko">힉스필드에서 실제로 쓰는 방법 그대로예요. [ ] 안만 내 캐릭터로 바꾸세요.</p>
+    <div class="fan"><span class="chip">Soul ID</span><span class="chip">Elements</span><span class="chip">Image: Nano Banana Pro</span><span class="chip">Video: Seedance 2.5</span></div>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>What broke, 5 times</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Ver.</th><th>What I tried</th><th>What happened</th></tr></thead>
+      <tbody>
+        <tr><td class="num">V1</td><td>Photo references only</td><td>In every new scene she looked years older</td></tr>
+        <tr><td class="num">V2</td><td>One full character sheet</td><td>Better, but still looked "AI"</td></tr>
+        <tr><td class="num">V3</td><td>Soul ID trained on 5 face photos</td><td>Face locked. Big head, narrow shoulders</td></tr>
+        <tr><td class="num">V4</td><td>+ 6 full-body photos</td><td>Body fixed: smaller head, longer legs</td></tr>
+        <tr><td class="num">V5</td><td>+ 4 shoulder shots + 3 expressions she acts</td><td>Ready for action scenes</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ko">사진 참조만 → 나이 들어 보임 · 캐릭터 시트 → AI 티 · 얼굴 5장 학습 → 얼굴은 고정, 몸 비율 어색 · 전신 6장 추가 → 몸 해결 · 표정까지 학습 → 연기 가능</p>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Train the Soul ID on the right photos</h2>
+    <p>The training set decides everything. A face-only set gives you a perfect face on the wrong body.</p>
+    <p class="ko">학습 사진이 전부를 정해요. 얼굴 사진만 넣으면 얼굴은 맞는데 몸이 틀려요.</p>
+    <ul class="tips">
+      <li><b>5 face close-ups</b> — front, 3/4 left, 3/4 right, soft light, neutral face.<br><span class="ko">얼굴 클로즈업 5장 (정면·좌우 3/4)</span></li>
+      <li><b>6 full-body shots</b> — head to toe, so the model learns head size and leg length.<br><span class="ko">전신 6장 — 머리 크기·다리 길이를 배우게</span></li>
+      <li><b>4 upper-body shots</b> showing the shoulders clearly wider than the head.<br><span class="ko">상반신 4장 — 어깨가 머리보다 넓게</span></li>
+      <li><b>3 expressions your character will actually act</b> (mine: resolve, shout, pain).<br><span class="ko">실제로 연기할 표정 3장</span></li>
+      <li><b>Real photos only.</b> One drawing or 3D render in the set drags every result toward anime.<br><span class="ko">사진풍만. 그림 한 장만 섞여도 애니로 끌려가요</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>The lock: one Element per look</h2>
+    <p>Make 1 face Element, then 1 Element for every outfit. Every shot starts from an Element — never from a loose photo.</p>
+    <p class="ko">얼굴 Element 1개 + 의상마다 Element 1개. 모든 컷은 Element에서 시작해요.</p>
+    <ul class="tips">
+      <li><b>Check the Element's own photos first.</b> If the outfit or body is off there, every shot inherits it.<br><span class="ko">Element 사진부터 검수 — 거기서 틀리면 모든 컷이 따라 틀려요</span></li>
+      <li><b>Spell out outfit details in words</b> (e.g. "covering the feet, completely intact"). Vague outfits drift.<br><span class="ko">의상 디테일은 글로 정확히</span></li>
+      <li><b>Video models: Element only.</b> Seedance may refuse face photos as references, and Elements hold better anyway.<br><span class="ko">영상에서는 얼굴 사진 말고 Element만</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>Image prompt (Nano Banana Pro)</h2>
+    <p>Images 1–2 = face references, images 3–4 = body references. Telling the model which image controls what stops the face and body from mixing.</p>
+    <p class="ko">1~2번은 얼굴, 3~4번은 몸 참조. 어떤 사진이 무엇을 담당하는지 적어 줘야 안 섞여요.</p>
+    <div class="meta"><span>Model <b>Nano Banana Pro</b></span><span>Ratio <b>9:16</b></span><span>Refs <b>2 face + 2 body</b></span></div>
+    <div class="prompt"><div class="bar"><span>Image template</span><button class="copy" type="button" id="c1">Copy</button></div><pre id="p1">A real photograph, a frame from a live-action film shot on a cinema camera, 35mm film grain, natural color.
+Not an illustration, not anime, not CGI, not a 3D render, no airbrushed plastic skin.
+FACE AND HAIR ONLY from images 1-2; BODY PROPORTIONS ONLY from images 3-4.
+[Name]: a [age]-year-old [woman/man] with [face shape], [nose], large [eye shape] natural [EYE COLOR] eyes (not glowing, not [wrong color]), [signature detail, e.g. see-through curtain bangs], [lips], [skin, e.g. clear skin, no freckles]; never older, do not change the face.
+[Hair: length, texture, color].
+[Body: build, waist, legs, height, head-to-body ratio]; body proportions never change.
+[Name] never looks at the camera; eyes on [target].
+SCENE: [what is happening].
+No blood, no glow, no readable text, no logos, no watermark.</pre></div>
+    <div class="prompt"><div class="bar"><span>Mir's face line (example)</span><button class="copy" type="button" id="c2">Copy</button></div><pre id="p2">Mir: a 20-year-old young woman with a soft youthful doll-like face, slim V-line jaw, small nose, large almond-shaped natural warm AMBER-BROWN eyes (not blue, not gray, not glowing), wispy see-through curtain bangs, soft rose-pink lips, clear smooth skin with no freckles; forehead stays smooth even in pain; never older, do not change her face.
+Long voluminous wavy blonde hair fading to pastel strawberry-pink ends.</pre></div>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>Video prompt (Seedance 2.5)</h2>
+    <p>Put the film rule at the very top. Written as one line at the end, the model ignores it and the character stares into the lens.</p>
+    <p class="ko">시선 규칙은 맨 앞에. 끝에 한 줄로 쓰면 무시하고 카메라를 쳐다봐요.</p>
+    <div class="meta"><span>Model <b>Seedance 2.5</b></span><span>Character <b>Element only</b></span></div>
+    <div class="prompt"><div class="bar"><span>Video template</span><button class="copy" type="button" id="c3">Copy</button></div><pre id="p3">FILM RULE: This is a feature film. [Name] NEVER looks at or toward the camera; no posing for the lens; eyes always locked on [target].
+CHARACTER: [Name] &lt;&lt;&lt;[your Element]&gt;&gt;&gt; — [age], [3-5 face anchors], [hair], [body line]; body never changes.
+ACTION: 0-3s [...]. 3-6s [...]. 6-10s [...].
+PHYSICS: real-world physics; only the struck person reacts; nobody falls without a visible hit; no glow, no aura.
+AUDIO: generate sound synced to the action; no metallic screeching.
+NEGATIVE: looking at camera, posing, older face, body change, duplicated characters, subtitles, text, watermark.</pre></div>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>When the face still drifts</h2>
+    <ul class="tips">
+      <li><b>Looks older?</b> Keep the face big (3/4 shot or closer), write "fashion magazine editorial", and use calm resolve instead of screams.<br><span class="ko">나이 들어 보이면 — 얼굴 크게, 비명 대신 절제된 표정</span></li>
+      <li><b>A different person?</b> When the face is under about 1/8 of the frame height, it stops being your character. Re-frame closer.<br><span class="ko">다른 사람이 되면 — 얼굴이 화면 높이 1/8보다 작음. 더 가깝게</span></li>
+      <li><b>Wrong eye color?</b> Name the color and add "not glowing, not gray" every time.<br><span class="ko">눈 색이 새면 — 색 이름 + not glowing 매번</span></li>
+      <li><b>Two or more people?</b> Soul is strongest on solo shots. For interaction, use Nano Banana Pro + Element.<br><span class="ko">둘 이상 나오면 — Soul 말고 Nano Banana Pro + Element</span></li>
+      <li><b>Check every result.</b> Crop the face and put it next to your reference before you move on.<br><span class="ko">결과마다 얼굴만 잘라 기준 사진과 나란히 대조</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span>Tools</h2>
+    <p>Everything on this page was made on Higgsfield: Soul ID, Elements, Nano Banana Pro and Seedance 2.5.</p>
+    <p class="ko">이 페이지의 모든 결과물은 힉스필드로 만들었어요.</p>
+    <p><a class="cta" href="https://higgsfield.ai/">Open Higgsfield</a></p>
+  </section>
+
+  <footer>
+    <span>Made by <b>@mir_actionai</b> · AI Mir</span>
+    <span>Comment <b>mir</b> on the reel and new prompts land in your DMs</span>
+  </footer>
+</div>
+
+<script>
+[["c1","p1"],["c2","p2"],["c3","p3"]].forEach(([b,p])=>{
+  const btn=document.getElementById(b), pre=document.getElementById(p);
+  btn.addEventListener("click",()=>{
+    const txt=pre.innerText;
+    const ok=()=>{btn.textContent="Copied";btn.classList.add("done");setTimeout(()=>{btn.textContent="Copy";btn.classList.remove("done")},1600)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="Selected · long-press to copy"};
+    try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+</body>
+</html>
